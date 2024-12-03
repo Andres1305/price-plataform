@@ -92,6 +92,11 @@ H2 Console URL : http://localhost:8080/h2-console
 
 ## Testing
 
+Run the next command for run the test : 
+
+### Run the next command for run the test :
+mvn clean verify
+
 The project includes comprehensive testing to ensure reliability and maintainability. The following types of tests have been implemented:
 
 ### 1. Unit Tests
