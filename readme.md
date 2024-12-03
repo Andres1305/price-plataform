@@ -13,6 +13,7 @@ A **Spring Boot** application/service that provides a REST endpoint for querying
 - [API First Approach](#api-first-approach)
 - [Technologies Used](#technologies-used)
 - [API Documentation](#api-documentation)
+- [Database Access](#database-access)
 - [Testing](#testing)
 - [Docker](#docker)
 
@@ -73,14 +74,50 @@ http://localhost:8080/swagger-ui/index.html#/Price
 This documentation provides details about all available endpoints, parameters, and response schemas.
 
 ---
+## Database Access
+
+The project uses an in-memory **H2 Database** for testing and development purposes. You can access the H2 Console to view and manage the database at runtime.
+
+H2 Console URL : http://localhost:8080/h2-console
+
+### H2 Credentials
+- **JDBC URL:** `jdbc:h2:mem:testdb`
+- **Username:** `sa`
+- **Password:** `password`  
+
+Ensure the application is running to access the H2 Console.
+---
+
+
 
 ## Testing
 
-The project includes the following types of tests to ensure code quality and correctness:
+The project includes comprehensive testing to ensure reliability and maintainability. The following types of tests have been implemented:
 
-- **Unit Tests:** Validate individual components and methods.
-- **Integration Tests:** Test interactions between components and the database.
-- **Contract Tests:** Verify compliance with the API specification defined in `price-api.yml`.
+### 1. Unit Tests
+Unit tests have been created for all layers of the project:
+- **Application Layer:** Tests for business use cases and service logic.
+- **Domain Layer:** Tests for core entities and domain-specific logic.
+- **Infrastructure Layer:** Tests for database operations and repository functionality.
+- **Interface Layer:** Tests for controllers and request/response handling.
+
+These tests validate the functionality of individual components and ensure they perform as expected.
+
+### 2. Integration Tests
+Integration tests verify the interaction between components and the system as a whole. This includes testing database access, service orchestration, and API endpoints.
+
+### 3. Contract Tests
+Contract tests ensure that the API complies with predefined contracts, promoting consistency and preventing breaking changes. The contracts are stored in the following directory: 
+\src\test\resources\contracts\price
+
+
+#### Available Contracts:
+- **shouldReturnPrice.yml**: Validates general use cases of the project.
+- **validationRequestTechnicalTest.yml**: Contains the five specific tests required for the technical assessment.
+
+These contracts help verify that the API adheres to expected behavior under various scenarios.
+
+
 
 ---
 
