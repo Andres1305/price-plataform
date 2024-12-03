@@ -85,7 +85,7 @@ H2 Console URL : http://localhost:8080/h2-console
 - **Username:** `sa`
 - **Password:** `password`  
 
-Ensure the application is running to access the H2 Console.
+
 ---
 
 
@@ -127,9 +127,9 @@ The project is fully containerized for easy deployment. To build and run the app
 
 ```bash
 # Build the Docker image
-docker build -t ecommerce-price-app .
+docker build -t spring-boot-app .
 
 # Run the container
-docker run -p 8080:8080 ecommerce-price-app
+docker run -p 8080:8080 spring-boot-app
 
 Once running, the application will be accessible at http://localhost:8080.
