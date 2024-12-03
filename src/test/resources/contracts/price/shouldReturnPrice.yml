@@ -1,0 +1,34 @@
+name: price by brand
+request:
+    method: GET
+    url: /price
+    queryParameters:
+        brand_id: "1"
+response:
+    status: 200
+    headers:
+        Content-Type: application/json
+    bodyFromFile: response/PriceByBrandResponse.json
+---
+name: price all
+request:
+    method: GET
+    url: /price
+response:
+    status: 200
+    headers:
+        Content-Type: application/json
+    bodyFromFile: response/PriceByBrandResponse.json
+
+---
+name: price empty
+request:
+    method: GET
+    url: /price
+    queryParameters:
+        brand_id: "999"
+response:
+    status: 200
+    headers:
+        Content-Type: application/json
+    bodyFromFile: response/PriceByBrandResponseEmpty.json

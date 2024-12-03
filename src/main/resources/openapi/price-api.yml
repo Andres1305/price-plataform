@@ -1,0 +1,77 @@
+openapi: 3.0.0
+servers:
+  - description: Service for Price
+    url: https://api.mycompany.com/price/1.0.0
+info:
+  description: This is a request API
+  version: "1.0.1"
+  title: Samples API
+  contact:
+    email: rprudencio@paradigmadigital.com
+tags:
+  - name: Price
+    description: price services
+
+paths:
+  /price:
+    get:
+      tags:
+        - Price
+      summary: searches prices
+      operationId: getPrices
+      parameters:
+        - name: apply_date
+          in: query
+          description: Fecha de aplicación del producto
+          schema:
+            type: string
+            pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}.[0-9]{2}.[0-9]{2}$"
+            example: "2020-12-31-23.59.59"
+        - name: product_id
+          in: query
+          description: Identificador del producto
+          schema:
+            type: integer
+            minimum: 0
+            example: 1234
+        - name: brand_id
+          in: query
+          description: Identificador de la cadena
+          schema:
+            type: integer
+            minimum: 0
+            example: 1234
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  $ref: '#/components/schemas/PriceResponse'
+
+        '400':
+          description: bad input parameter
+
+components:
+  schemas:
+    PriceResponse:
+      properties:
+        product_id:
+          type: integer
+          description: Identificador del producto
+        brand_id:
+          type: integer
+          description: Identificador de la cadena
+        price_list:
+          type: number
+          description: Tarifa a aplicar
+        start_date:
+          type: string
+          format: date
+          description: Fechas de aplicación
+        price:
+          type: number
+          description: Precio final a aplicar

@@ -1,0 +1,128 @@
+#Test 1: petición a las 10:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+name: test  1
+request:
+  method: GET
+  url: /price
+  queryParameters:
+    brand_id: "1"
+    apply_date: "2020-06-14-10.00.00"
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    product_id: "35455"
+    brand_id: "1"
+    price_list: "1"
+    start_date: "2020-06-14",
+    price: "35.5"
+---
+#Test 2: petición a las 16:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+name: test  2
+request:
+  method: GET
+  url: /price
+  queryParameters:
+    brand_id: "1"
+    apply_date: "2020-06-14-16.00.00"
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body: |
+    [
+      {
+        "product_id": 35455,
+        "brand_id": 1,
+        "price_list": 1,
+        "start_date": "2020-06-14",
+        "price": 35.5
+      },
+      {
+        "product_id": 35455,
+        "brand_id": 1,
+        "price_list": 2,
+        "start_date": "2020-06-14",
+        "price": 25.45
+      }
+    ]
+#Test 3: petición a las 21:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+  name: test  3
+  request:
+    method: GET
+    url: /price
+    queryParameters:
+      brand_id: "1"
+      apply_date: "2020-06-14-21.00.00"
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body:
+      product_id: "35455"
+      brand_id: "1"
+      price_list: "1"
+      start_date: "2020-06-14",
+      price: "35.5"
+---
+#Test 4: petición a las 10:00 del día 15 del producto 35455   para la brand 1 (ZARA)
+name: test  4
+request:
+  method: GET
+  url: /price
+  queryParameters:
+    brand_id: "1"
+    apply_date: "2020-06-15-10.00.00"
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body: |
+    [
+      {
+        "product_id": 35455,
+        "brand_id": 1,
+        "price_list": 1,
+        "start_date": "2020-06-14",
+        "price": 35.5
+      },
+      {
+        "product_id": 35455,
+        "brand_id": 1,
+        "price_list": 3,
+        "start_date": "2020-06-15",
+        "price": 30.5
+      }
+  ]
+---
+#Test 5: petición a las 21:00 del día 16 del producto 35455   para la brand 1 (ZARA)
+name: test  5
+request:
+  method: GET
+  url: /price
+  queryParameters:
+    brand_id: "1"
+    apply_date: "2020-06-16-21.00.00"
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body: |
+    [
+    {
+      "product_id": 35455,
+      "brand_id": 1,
+      "price_list": 1,
+      "start_date": "2020-06-14",
+      "price": 35.5
+    },
+    {
+      "product_id": 35456,
+      "brand_id": 1,
+      "price_list": 4,
+      "start_date": "2020-06-15",
+      "price": 38.95
+    }
+    ]
+
+
